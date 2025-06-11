@@ -44,6 +44,7 @@ body {
       input[type="text"] {
         flex-grow: 0;
         min-width: 0;
+        font-family: inherit;
         font-size: 1.1rem;
         background-color: transparent;
         color: $primary-color;
@@ -66,6 +67,7 @@ body {
       // ------ BUTTON ------
       button[type="submit"] {
         flex-shrink: 0;
+        font-family: inherit;
         font-size: 1.05rem;
         font-weight: 600;
         background-color: $primary-color;
