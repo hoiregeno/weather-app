@@ -1,0 +1,174 @@
+@use "./variables.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  padding: min(2rem, 7%);
+  background-color: $bg-color;
+  animation: fadeIn 1s ease;
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .app-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: $primary-color;
+      margin-bottom: 1rem;
+      text-align: center;
+      line-height: 2.85rem;
+    }
+
+    // ------ FORM ------
+    .weather-form {
+      display: flex;
+      width: min(300px, 100%);
+      justify-content: space-between;
+      background-color: hsla(179, 100%, 80%, 0.1);
+      border-radius: $radius-m;
+      margin-bottom: 1.65rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+      // ------ INPUT ------
+      input[type="text"] {
+        flex-grow: 0;
+        min-width: 0;
+        font-size: 1.1rem;
+        background-color: transparent;
+        color: $primary-color;
+        border: $thickness-m solid transparent;
+        outline: none;
+        border-radius: $radius-m 0 0 $radius-m;
+        padding: $space-m 1rem;
+        transition: border-color 150ms ease;
+
+        &::placeholder {
+          color: $primary-color;
+        }
+        &:hover,
+        &:focus {
+          border: $thickness-m solid $primary-color;
+          border-right-color: transparent;
+        }
+      }
+
+      // ------ BUTTON ------
+      button[type="submit"] {
+        flex-shrink: 0;
+        font-size: 1.05rem;
+        font-weight: 600;
+        background-color: $primary-color;
+        color: $bg-color;
+        border: none;
+        outline: none;
+        border-radius: 0 $radius-m $radius-m 0;
+        padding: 0 1rem;
+        transition: filter 200ms ease;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
+        &:active {
+          filter: brightness(1.1);
+        }
+      }
+    }
+
+    // ------ ERROR MESSAGE ------
+    .error-message {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: hsl(0, 100%, 60%);
+    }
+
+    // ------ LOADING SPINNER ------
+    .loading-wrapper {
+      position: relative;
+      top: 50px;
+      width: $size;
+      height: $size;
+      border: $thickness solid hsla(179, 100%, 50%, 0.1);
+      border-radius: $radius-f;
+
+      &__spinner {
+        width: $size;
+        height: $size;
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        border: $thickness solid transparent;
+        border-top-color: $primary-color;
+        border-radius: $radius-f;
+        animation: spin 1s ease-in-out infinite;
+      }
+    }
+
+    // ------ LOADING ICON ANIMATION ------
+    @keyframes spin {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    // ------ CARD ------
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: hsla(179, 100%, 80%, 0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid $primary-color;
+      padding: 1.5rem 2rem 1rem;
+      border-radius: $radius-s;
+      line-height: 1.75;
+      box-shadow: 0 0 10px hsla(179, 100%, 80%, 0.3);
+      animation: fadeIn 1s ease;
+
+      &__city {
+        font-size: 2.1rem;
+        font-weight: 800;
+        color: $primary-color;
+      }
+      &__temp {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $primary-color;
+        margin-bottom: $space-m;
+      }
+
+      &__humidity,
+      &__description {
+        font-size: 1.1rem;
+        color: $primary-color;
+        text-transform: capitalize;
+      }
+
+      &__weather-icon {
+        animation: fadeIn 2s ease;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
