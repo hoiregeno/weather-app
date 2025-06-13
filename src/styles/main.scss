@@ -159,6 +159,11 @@ body {
         text-transform: capitalize;
       }
 
+      &__wind {
+        font-size: 1.1rem;
+        color: $primary-color;
+      }
+
       &__weather-icon {
         animation: fadeIn 2s ease;
       }
