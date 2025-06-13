@@ -16,7 +16,7 @@ function WeatherApp() {
   // Handles the city entered.
   const handleCityInput = async (e) => {
     e.preventDefault(); // Prevent default form behaviour
-    const trimmed = city.trim(); // Grab the city enterd and trim any unnecessary whitespaces.
+    const trimmed = city.trim(); // Grab the city entered and trim any unnecessary whitespaces.
 
     // If there's no city entered, Exit handleCityInput function
     if (!trimmed) return;
@@ -73,9 +73,15 @@ function WeatherApp() {
     <>
       <h1 className="app-title">Weather App</h1>
 
-      <form className="weather-form" onSubmit={handleCityInput}>
+      <form
+        className="weather-form"
+        onSubmit={handleCityInput}
+        role="search"
+        aria-label="Search for city weather"
+      >
         <input
           type="text"
+          id="city-input"
           placeholder="Enter city"
           value={city}
           onChange={(e) => {
@@ -83,6 +89,7 @@ function WeatherApp() {
             setError("");
           }}
           ref={inputRef}
+          aria-label="City name"
           required
         />
         <button
@@ -93,21 +100,38 @@ function WeatherApp() {
               ? { cursor: "not-allowed", backgroundColor: "gray" }
               : { cursor: "pointer" }
           }
-          aria-label="search city"
+          aria-label="Search city"
         >
           Search
         </button>
       </form>
 
-      {error && <p className="error-message">{error}</p>}
+      {error && (
+        <p role="alert" className="error-message">
+          {error}
+        </p>
+      )}
+
       {isLoading && (
-        <div className="loading-wrapper">
-          <div className="loading-wrapper__spinner"></div>
+        <div
+          className="loading-wrapper"
+          role="status"
+          aria-live="polite"
+          aria-busy={isLoading}
+          aria-label="Loading weather data"
+        >
+          <div className="loading-wrapper__spinner" aria-hidden="true"></div>
         </div>
       )}
 
       {weather && !isLoading && (
-        <div className="card">
+        <div
+          className="card"
+          role="region"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-label={`Current weather in ${weather.name}`}
+        >
           <h1 className="card__city">
             {weather.name}, {weather.sys.country}
           </h1>
