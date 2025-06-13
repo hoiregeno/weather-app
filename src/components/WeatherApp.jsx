@@ -46,6 +46,29 @@ function WeatherApp() {
     }
   };
 
+  const getCardinalDirection = (deg) => {
+    const directions = [
+      "N",
+      "NNE",
+      "NE",
+      "ENE",
+      "E",
+      "ESE",
+      "SE",
+      "SSE",
+      "S",
+      "SSW",
+      "SW",
+      "WSW",
+      "W",
+      "WNW",
+      "NW",
+      "NNW",
+    ];
+    const index = Math.floor((deg + 11.25) / 22.5);
+    return directions[index % 16];
+  };
+
   return (
     <>
       <h1 className="app-title">Weather App</h1>
@@ -88,9 +111,13 @@ function WeatherApp() {
           <h1 className="card__city">
             {weather.name}, {weather.sys.country}
           </h1>
-          <p className="card__temp">{weather.main.temp.toFixed(2)}°C</p>
+          <p className="card__temp">{Math.round(weather.main.temp)}°C</p>
           <p className="card__humidity">humidity: {weather.main.humidity}%</p>
           <p className="card__description">{weather.weather[0].description}</p>
+          <p className="card__wind">
+            Wind: {Math.round(weather.wind.speed * 3.6)} km/h,{" "}
+            {getCardinalDirection(weather.wind.deg)}
+          </p>
           <img
             src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
             alt={weather.weather[0].description}
