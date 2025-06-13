@@ -46,6 +46,7 @@ function WeatherApp() {
     }
   };
 
+  // Returns the correct direction of wind.
   const getCardinalDirection = (deg) => {
     const directions = [
       "N",
