@@ -114,8 +114,8 @@ function WeatherApp() {
           <p className="card__temp">{Math.round(weather.main.temp)}°C</p>
           <p className="card__humidity">humidity: {weather.main.humidity}%</p>
           <p className="card__wind">
-            Wind: {Math.round(weather.wind.speed * 3.6)} km/h,{" "}
-            {getCardinalDirection(weather.wind.deg)}
+            Wind: {Math.round(weather.wind.speed * 3.6)} km/h (
+            {getCardinalDirection(weather.wind.deg)})
           </p>
           <p className="card__description">{weather.weather[0].description}</p>
           <img
