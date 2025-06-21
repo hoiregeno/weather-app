@@ -137,6 +137,9 @@ function WeatherApp() {
             {weather.name}, {weather.sys.country}
           </h1>
           <p className="card__temp">{Math.round(weather.main.temp)}°C</p>
+          <p className="card__feels-like-temp">
+            Feels like: {Math.round(weather.main.feels_like)}°C
+          </p>
           <p className="card__humidity">humidity: {weather.main.humidity}%</p>
           <p className="card__wind">
             Wind: {Math.round(weather.wind.speed * 3.6)} km/h (
