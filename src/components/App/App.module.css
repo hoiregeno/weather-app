@@ -33,7 +33,8 @@
 .errorDisplay {
   font-size: var(--font-size-base);
   font-weight: 600;
-  color: hsl(0, 100%, 38%); /* red is unique, so it's fine hardcoded unless reused */
+  color: hsl(0, 100%, 28%); /* red is unique, so it's fine hardcoded unless reused */
+  text-align: center;
 }
 
 @keyframes spin {
