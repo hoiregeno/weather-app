@@ -16,6 +16,7 @@
 .humidityDisplay,
 .descDisplay {
   color: var(--clr-text);
+  text-align: center;
 }
 
 .feelsLikeDisplay,
