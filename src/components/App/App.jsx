@@ -31,7 +31,7 @@ function App() {
     setIsLoading(true);
     try{
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?&units=metric&q=${cityName}&appid=${apiKey}`);
-      if(!response.ok) throw new Error(`Could not find ${cityName}. Please try again.`);
+      if(!response.ok) throw new Error(`Could not find "${cityName}". Please try again.`);
 
       const {
         name: city,
