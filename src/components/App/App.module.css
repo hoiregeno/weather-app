@@ -1,0 +1,46 @@
+.appTitle,
+.errorDisplay {
+  margin-bottom: var(--space-md);
+}
+
+.appTitle {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--clr-text);
+}
+
+.loadingDisplay,
+.spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.loadingDisplay {
+  border: 6px solid hsla(195, 53%, 30%, 0.5); /* stays as-is, not in root */
+  position: relative;
+}
+
+.spinner {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  border: 6px solid transparent;
+  border-top-color: var(--clr-text);
+  animation: spin 1s ease-out infinite;
+}
+
+.errorDisplay {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: hsl(0, 100%, 38%); /* red is unique, so it's fine hardcoded unless reused */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

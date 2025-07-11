@@ -1,0 +1,57 @@
+.weatherForm {
+  display: flex;
+  width: min(300px, 100%);
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.cityInput,
+.searchButton {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  outline: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-pill);
+}
+
+.cityInput {
+  border: 2px solid var(--clr-input-border);
+  background-color: var(--clr-input-bg);
+  flex-grow: 1;
+  min-width: 0;
+  transition: border-color var(--transition-fast);
+}
+
+.cityInput,
+.cityInput::placeholder {
+  color: var(--clr-text);
+}
+
+.cityInput:hover,
+.cityInput:focus {
+  border-color: var(--clr-text);
+}
+
+.searchButton {
+  flex-shrink: 0;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background-color: var(--clr-btn-bg);
+  color: var(--clr-btn-text);
+  transition: background-color var(--transition-fast);
+}
+
+.searchButton:hover {
+  background-color: var(--clr-btn-hover);
+}
+
+.searchButton:active {
+  background-color: var(--clr-btn-active);
+}
+
+.searchButton:disabled {
+  background-color: var(--clr-disabled-bg);
+  color: var(--clr-disabled-text);
+  cursor: not-allowed;
+}

@@ -1,0 +1,41 @@
+.card {
+  background-color: hsla(0, 0%, 100%, 0.1); /* optional: could define --clr-surface */
+  backdrop-filter: blur(2px);
+  border: 2px solid hsla(0, 0%, 100%, 0.05);
+  padding: var(--space-lg) calc(var(--space-lg) + 0.5rem);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.cityDisplay,
+.tempDisplay,
+.feelsLikeDisplay,
+.humidityDisplay,
+.descDisplay {
+  color: var(--clr-text);
+}
+
+.feelsLikeDisplay,
+.humidityDisplay,
+.descDisplay {
+  font-size: var(--font-size-base);
+  text-transform: capitalize;
+}
+
+.cityDisplay {
+  font-size: 2.1rem;
+  font-weight: 800;
+}
+
+.tempDisplay {
+  margin: var(--space-md) 0;
+  font-weight: 800;
+}
+
+.descDisplay {
+  margin-top: var(--space-md);
+  font-weight: 600;
+}

@@ -1,0 +1,31 @@
+:root {
+  /* colors */
+  --clr-input-border: hsla(195, 53%, 10%, 0.5);
+  --clr-input-bg:    hsla(195, 53%, 30%, 0.1);
+  --clr-text:        hsl(195, 53%, 10%);
+  --clr-btn-bg:      hsl(195, 53%, 25%);
+  --clr-btn-text:    hsl(195, 53%, 79%);
+  --clr-btn-hover:   hsl(195, 53%, 20%);
+  --clr-btn-active:  hsl(195, 53%, 30%);
+  --clr-disabled-bg: hsla(195, 53%, 25%, 0.5);
+  --clr-disabled-text: hsla(195, 53%, 79%, 0.5);
+
+  /* gradient-based text & borders */
+  --clr-text-primary:    hsl(0, 0%, 100%);    /* crisp white for headings */
+  --clr-text-secondary:  hsl(195, 100%, 90%); /* very light cyan for captions */
+  --clr-text-body:       hsl(0, 0%, 95%);     /* soft off-white for body text */
+  --clr-border:          hsla(0, 0%, 100%, 0.4); /* subtle semi-transparent white */
+
+  /* typography */
+  --font-family-base: inherit;
+  --font-size-base:   1.1rem;
+
+  /* spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+
+  /* shapes & transitions */
+  --radius-pill: 50px;
+  --transition-fast: 200ms ease;
+}
