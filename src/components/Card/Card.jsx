@@ -21,6 +21,7 @@ function Card({ city, country, temp, feels_like, humidity, description, icon }) 
       <img
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
         alt="weather icon"
+        className={styles.iconDisplay}
       />
     </div>
   );
