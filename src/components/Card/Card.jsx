@@ -1,10 +1,10 @@
 import styles from './Card.module.css';
 
-function Card({ city, temp, feels_like, humidity, description, icon }) {
+function Card({ city, country, temp, feels_like, humidity, description, icon }) {
   return (
     <div className={styles.card}>
       <h1 className={styles.cityDisplay}>
-        {city}
+        {`${city}, ${country}`}
       </h1>
       <h2 className={styles.tempDisplay}>
         {`${Math.round(temp)}°C`}
