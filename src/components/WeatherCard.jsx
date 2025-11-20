@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getWeatherInfo, getWindDirection } from "../utils/weatherUtils";
+import "../style/WeatherCard.css";
 
 const WeatherCard = () => {
   const [city, setCity] = useState("");
