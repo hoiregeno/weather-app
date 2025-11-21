@@ -25,6 +25,7 @@ const WeatherCard = () => {
       setErr("Please enter a city.");
       return;
     }
+
     // Start loading
     setIsLoading(true);
 
