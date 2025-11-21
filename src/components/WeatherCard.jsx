@@ -65,7 +65,7 @@ const WeatherCard = () => {
     <>
       <h1 className="app-title">Weather App</h1>
 
-      <form onSubmit={handleCityInput}>
+      <form onSubmit={handleCityInput} className="weather-form">
         <input
           ref={cityInputRef}
           type="text"
