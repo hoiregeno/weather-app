@@ -81,7 +81,7 @@ const WeatherCard = () => {
         </button>
       </form>
 
-      {err && <p>{err}</p>}
+      {err && <p className="error-msg">{err}</p>}
 
       {weather && (
         <div className="card">
