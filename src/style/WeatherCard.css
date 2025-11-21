@@ -1,0 +1,85 @@
+:root {
+  --bg-clr: hsl(180, 100%, 10%);
+  --text-clr: hsl(180, 100%, 50%);
+  --overlay-shadow: hsla(180, 100%, 50%, 0.1);
+
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+
+  --radius-m: 1rem;
+}
+.app-title {
+  font-size: 2.5rem;
+  color: var(--text-clr);
+  margin-bottom: var(--space-m);
+}
+.weather-form {
+  display: flex;
+  justify-content: space-between;
+  width: min(25rem, 100%);
+  background-color: var(--overlay-shadow);
+  overflow: hidden;
+  border-radius: var(--radius-m);
+}
+.weather-form > input[type="text"] {
+  flex-grow: 1;
+  background-color: transparent;
+  font-size: 1.1rem;
+  color: var(--text-clr);
+  padding: var(--space-s) var(--space-m);
+}
+.weather-form > button[type="submit"] {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--text-clr);
+  color: var(--bg-clr);
+  padding-inline: var(--space-m);
+  cursor: pointer;
+}
+.weather-form > button[type="submit"]:disabled {
+  color: hsl(0, 0%, 20%);
+  background-color: hsl(0, 0%, 50%);
+}
+.error-msg {
+  color: hsl(0, 100%, 65%);
+  margin-top: var(--space-m);
+}
+.card {
+  background-image: linear-gradient(
+    180deg,
+    hsl(195, 53%, 69%),
+    hsl(60, 100%, 55%)
+  );
+  padding: var(--space-l);
+  border-radius: var(--radius-m);
+  margin-top: var(--space-l);
+}
+.city-display,
+.temp-display,
+.desc-display {
+  text-align: center;
+}
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.weather-icon {
+  object-fit: cover;
+  overflow: hidden;
+  max-width: 100%;
+}
+.city-display,
+.temp-display,
+.desc-display,
+.humidity-display,
+.feels-like-display,
+.wind-display {
+  color: var(--bg-clr);
+  line-height: 1.75rem;
+}
+.desc-display {
+  font-weight: 800;
+  text-transform: capitalize;
+  margin: var(--space-s) 0 var(--space-m);
+}
