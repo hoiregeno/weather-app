@@ -89,10 +89,13 @@ const WeatherCard = () => {
             {cityName}, {country}
           </h1>
 
-          <img
-            src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-            alt={description}
-          />
+          <div className="icon-wrapper">
+            <img
+              src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+              alt={description}
+              className="weather-icon"
+            />
+          </div>
 
           <h2 className="temp-display">{tempC}°C</h2>
 
