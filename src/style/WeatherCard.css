@@ -18,6 +18,8 @@
   line-height: 1.2;
 }
 
+/* --- SEARCH FORM -- */
+
 .weather-form {
   display: flex;
   justify-content: space-between;
@@ -27,6 +29,8 @@
   border-radius: var(--radius-m);
 }
 
+/* --- SEARCH INPUT -- */
+
 .weather-form > input[type="text"] {
   flex-grow: 1;
   min-width: 0;
@@ -35,6 +39,8 @@
   color: var(--text-clr);
   padding: var(--space-s) var(--space-m);
 }
+
+/* --- SEARCH BUTTON -- */
 
 .weather-form > button[type="submit"] {
   flex-shrink: 0;
