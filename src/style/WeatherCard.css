@@ -1,106 +1,42 @@
+/* =========================================
+   1. VARIABLES & SETUP
+   ========================================= */
 :root {
+  /* --- Colors --- */
   --bg-clr: hsl(180, 100%, 10%);
   --text-clr: hsl(180, 100%, 50%);
   --overlay-shadow: hsla(180, 100%, 50%, 0.1);
 
+  /* State Colors (Extracted for consistency) */
+  --error-clr: hsl(0, 100%, 65%);
+  --disabled-bg: hsl(0, 0%, 40%);
+  --disabled-fill: hsl(0, 0%, 60%);
+
+  /* --- Spacing --- */
   --space-s: 0.5rem;
   --space-m: 1rem;
   --space-l: 1.5rem;
 
+  /* --- Layout --- */
   --radius-m: 1rem;
 }
 
-.app-title {
-  font-size: clamp(1.5rem, 0.9226rem + 1.8476vw, 2.5rem);
-  color: var(--text-clr);
-  margin-bottom: var(--space-m);
-  text-align: center;
-  line-height: 1.2;
-}
+/* =========================================
+   2. SHARED TYPOGRAPHY
+   ========================================= */
 
-/* --- SEARCH FORM -- */
-
-.weather-form {
-  display: flex;
-  justify-content: space-between;
-  width: min(25rem, 100%);
-  background-color: var(--overlay-shadow);
-  overflow: hidden;
-  border-radius: var(--radius-m);
-}
-
-/* --- SEARCH INPUT -- */
-
-.weather-form > input[type="text"] {
-  flex-grow: 1;
-  min-width: 0;
-  background-color: transparent;
-  font-size: clamp(0.9rem, 0.7845rem + 0.3695vw, 1.1rem);
-  color: var(--text-clr);
-  padding: var(--space-s) var(--space-m);
-}
-
-/* --- SEARCH BUTTON -- */
-
-.weather-form > button[type="submit"] {
-  flex-shrink: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background-color: var(--text-clr);
-  color: var(--bg-clr);
-  padding-inline: var(--space-m);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-.weather-form > button[type="submit"]:disabled {
-  cursor: not-allowed;
-  background-color: hsl(0, 0%, 40%);
-  fill: hsl(0, 0%, 60%);
-}
-
-.error-msg {
-  color: hsl(0, 100%, 65%);
-  margin-top: var(--space-m);
-}
-
-.card {
-  background-image: linear-gradient(
-    180deg,
-    hsl(195, 53%, 69%),
-    hsl(60, 100%, 55%)
-  );
-  padding: var(--space-l);
-  border-radius: var(--radius-m);
-  margin-top: var(--space-l);
-}
-
+/* Center Alignment Group */
+.app-title,
 .city-display,
 .temp-display,
-.desc-display {
-  text-align: center;
-}
-
-.city-display {
-  font-size: clamp(1.2rem, 1.0268rem + 0.5543vw, 1.5rem);
-  line-height: 1.7;
-}
-
-.temp-display {
-  font-size: clamp(1.2rem, 1.0268rem + 0.5543vw, 1.5rem);
-}
-
+.desc-display,
 .icon-wrapper {
-  display: flex;
+  text-align: center;
+  /* flex centering for the icon wrapper */
   justify-content: center;
 }
 
-.weather-icon {
-  object-fit: cover;
-  overflow: hidden;
-  max-width: 100%;
-}
-
+/* Card Text Colors & Line Height */
 .city-display,
 .temp-display,
 .desc-display,
@@ -111,11 +47,99 @@
   line-height: 1.75rem;
 }
 
+/* Large Text Size (City, Temp) */
+.city-display,
+.temp-display {
+  font-size: clamp(1.2rem, 1.0268rem + 0.5543vw, 1.5rem);
+}
+
+/* Regular Text Size (Input, Details) */
+.weather-form > input[type="text"],
 .desc-display,
 .humidity-display,
 .feels-like-display,
 .wind-display {
   font-size: clamp(0.9rem, 0.7845rem + 0.3695vw, 1.1rem);
+}
+
+/* =========================================
+   3. COMPONENTS
+   ========================================= */
+
+/* --- App Title --- */
+.app-title {
+  font-size: clamp(1.5rem, 0.9226rem + 1.8476vw, 2.5rem);
+  color: var(--text-clr);
+  margin-bottom: var(--space-m);
+  line-height: 1.2;
+}
+
+/* --- Search Form --- */
+.weather-form {
+  display: flex;
+  justify-content: space-between;
+  width: min(25rem, 100%);
+  background-color: var(--overlay-shadow);
+  overflow: hidden;
+  border-radius: var(--radius-m);
+}
+
+.weather-form > input[type="text"] {
+  flex-grow: 1;
+  min-width: 0;
+  background-color: transparent;
+  color: var(--text-clr);
+  padding: var(--space-s) var(--space-m);
+  border: none;
+}
+
+.weather-form > button[type="submit"] {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  background-color: var(--text-clr);
+  color: var(--bg-clr);
+  padding-inline: var(--space-m);
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.weather-form > button[type="submit"]:disabled {
+  cursor: not-allowed;
+  background-color: var(--disabled-bg);
+  fill: var(--disabled-fill);
+}
+
+/* --- Error Message --- */
+.error-msg {
+  color: var(--error-clr);
+  margin-top: var(--space-m);
+}
+
+/* --- Weather Card --- */
+.card {
+  margin-top: var(--space-l);
+  padding: var(--space-l);
+  border-radius: var(--radius-m);
+  background-image: linear-gradient(
+    180deg,
+    hsl(195, 53%, 69%),
+    hsl(60, 100%, 55%)
+  );
+}
+
+.icon-wrapper {
+  display: flex; /* Centering handled in Shared Typography group */
+}
+
+.weather-icon {
+  object-fit: cover;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .desc-display {
