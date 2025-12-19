@@ -53,6 +53,11 @@
   display: flex;
   align-items: center;
 }
+.weather-form > button[type="submit"]:disabled {
+  cursor: not-allowed;
+  background-color: hsl(0, 0%, 40%);
+  fill: hsl(0, 0%, 60%);
+}
 
 .error-msg {
   color: hsl(0, 100%, 65%);
