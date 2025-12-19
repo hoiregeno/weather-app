@@ -104,7 +104,7 @@
 .humidity-display,
 .feels-like-display,
 .wind-display {
-  font-size: clamp(0.95rem, 0.9211rem + 0.0924vw, 1rem);
+  font-size: clamp(0.9rem, 0.7845rem + 0.3695vw, 1.1rem);
 }
 
 .desc-display {
