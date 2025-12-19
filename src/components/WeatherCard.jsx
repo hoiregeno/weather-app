@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getWeatherInfo, getWindDirection } from "../utils/weatherUtils";
 import "../style/WeatherCard.css";
+import { SearchIcon } from "../assets/index";
 
 const WeatherCard = () => {
   const [city, setCity] = useState("");
@@ -77,7 +78,11 @@ const WeatherCard = () => {
           }}
         />
         <button type="submit" disabled={isLoading}>
-          {isLoading ? "Searching" : "Search"}
+          <SearchIcon
+            width={24}
+            height={24}
+            fill={{ style: "hsl(180, 100%, 10%)" }}
+          />
         </button>
       </form>
 
