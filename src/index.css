@@ -1,5 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800;1,600&display=swap");
 
+:root {
+  /* --- Colors --- */
+  --bg-clr: hsl(180, 100%, 10%);
+  --text-clr: hsl(180, 100%, 50%);
+  --overlay-shadow: hsla(180, 100%, 50%, 0.1);
+
+  /* State Colors */
+  --error-clr: hsl(0, 100%, 65%);
+  --disabled-bg: hsl(0, 0%, 40%);
+  --disabled-fill: hsl(0, 0%, 60%);
+
+  /* Card Gradient */
+  --card-gradient: linear-gradient(
+    180deg,
+    hsl(195, 53%, 69%),
+    hsl(60, 100%, 55%)
+  );
+
+  /* --- Spacing & Layout --- */
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --radius-m: 1rem;
+
+  /* --- Animation --- */
+  --spinner-size: 50px;
+  --spinner-thickness: 6px;
+}
+
+/* RESET STYLES */
 *,
 *::before,
 *::after {
@@ -7,6 +37,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* BASE STYLES */
 
 body {
   font-family: "Poppins", Arial, sans-serif;
