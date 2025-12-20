@@ -1,42 +1,25 @@
 /* =========================================
-   1. VARIABLES & SETUP
-   ========================================= */
-:root {
-  /* --- Colors --- */
-  --bg-clr: hsl(180, 100%, 10%);
-  --text-clr: hsl(180, 100%, 50%);
-  --overlay-shadow: hsla(180, 100%, 50%, 0.1);
-
-  /* State Colors (Extracted for consistency) */
-  --error-clr: hsl(0, 100%, 65%);
-  --disabled-bg: hsl(0, 0%, 40%);
-  --disabled-fill: hsl(0, 0%, 60%);
-
-  /* --- Spacing --- */
-  --space-s: 0.5rem;
-  --space-m: 1rem;
-  --space-l: 1.5rem;
-
-  /* --- Layout --- */
-  --radius-m: 1rem;
-}
-
-/* =========================================
-   2. SHARED TYPOGRAPHY
+   TYPOGRAPHY
    ========================================= */
 
-/* Center Alignment Group */
+/* Center Text Group */
 .app-title,
 .city-display,
 .temp-display,
 .desc-display,
-.icon-wrapper {
+.error-msg {
   text-align: center;
-  /* flex centering for the icon wrapper */
-  justify-content: center;
 }
 
-/* Card Text Colors & Line Height */
+/* App Title */
+.app-title {
+  font-size: clamp(1.5rem, 0.9226rem + 1.8476vw, 2.5rem);
+  color: var(--text-clr);
+  margin-bottom: var(--space-m);
+  line-height: 1.2;
+}
+
+/* Card Text Styling */
 .city-display,
 .temp-display,
 .desc-display,
@@ -47,13 +30,13 @@
   line-height: 1.75rem;
 }
 
-/* Large Text Size (City, Temp) */
+/* Large Text (City, Temp) */
 .city-display,
 .temp-display {
   font-size: clamp(1.2rem, 1.0268rem + 0.5543vw, 1.5rem);
 }
 
-/* Regular Text Size (Input, Details) */
+/* Regular Text (Input, Details) */
 .weather-form > input[type="text"],
 .desc-display,
 .humidity-display,
@@ -62,17 +45,20 @@
   font-size: clamp(0.9rem, 0.7845rem + 0.3695vw, 1.1rem);
 }
 
-/* =========================================
-   3. COMPONENTS
-   ========================================= */
-
-/* --- App Title --- */
-.app-title {
-  font-size: clamp(1.5rem, 0.9226rem + 1.8476vw, 2.5rem);
-  color: var(--text-clr);
-  margin-bottom: var(--space-m);
-  line-height: 1.2;
+.desc-display {
+  font-weight: 800;
+  text-transform: capitalize;
+  margin: var(--space-s) 0 var(--space-m);
 }
+
+.error-msg {
+  color: var(--error-clr);
+  margin-top: var(--space-m);
+}
+
+/* =========================================
+   COMPONENTS
+   ========================================= */
 
 /* --- Search Form --- */
 .weather-form {
@@ -82,6 +68,8 @@
   background-color: var(--overlay-shadow);
   overflow: hidden;
   border-radius: var(--radius-m);
+  /* Optional: Center the form if it's standalone */
+  margin-inline: auto;
 }
 
 .weather-form > input[type="text"] {
@@ -91,65 +79,70 @@
   color: var(--text-clr);
   padding: var(--space-s) var(--space-m);
   border: none;
+  outline: none; /* Add focus styles separately for accessibility */
 }
 
 .weather-form > button[type="submit"] {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-
   background-color: var(--text-clr);
   color: var(--bg-clr);
   padding-inline: var(--space-m);
-
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
+  transition: opacity 0.2s ease;
 }
 
-/* --- Error Message --- */
-.error-msg {
-  color: var(--error-clr);
-  margin-top: var(--space-m);
+.weather-form > button[type="submit"]:hover {
+  opacity: 0.9;
 }
 
-/* --- Loading Message --- */
-.loader,
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 6px solid transparent;
-  border-radius: 50%;
-}
-
+/* --- Loading Spinner (FIXED) --- */
+/* We use a relative container for the track (light circle)
+   and an absolute child for the spinner (dark arc).
+*/
 .loader {
   position: relative;
-  margin-top: var(--space-m);
-  border-color: hsla(180, 100%, 60%, 0.2);
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  margin: var(--space-m) auto; /* Centers it horizontally */
+
+  /* The "Track" */
+  border: var(--spinner-thickness) solid hsla(180, 100%, 60%, 0.2);
+  border-radius: 50%;
 }
 
 .spinner {
   position: absolute;
-  top: -6px;
-  left: -6px;
+  /* Use inset to cover the parent border exactly */
+  inset: calc(var(--spinner-thickness) * -1);
+
+  border: var(--spinner-thickness) solid transparent;
   border-top-color: hsl(180, 100%, 60%);
+  border-radius: 50%;
+
+  /* Fix: Removed 'ease-in-out', slowed down slightly for smoothness */
+  animation: spin 1s linear infinite;
 }
 
 /* --- Weather Card --- */
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content inside card */
   margin-top: var(--space-l);
   padding: var(--space-l);
   border-radius: var(--radius-m);
-  background-image: linear-gradient(
-    180deg,
-    hsl(195, 53%, 69%),
-    hsl(60, 100%, 55%)
-  );
+  background-image: var(--card-gradient);
 }
 
 .icon-wrapper {
-  display: flex; /* Centering handled in Shared Typography group */
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .weather-icon {
@@ -158,8 +151,12 @@
   max-width: 100%;
 }
 
-.desc-display {
-  font-weight: 800;
-  text-transform: capitalize;
-  margin: var(--space-s) 0 var(--space-m);
+/* =========================================
+   4. ANIMATIONS
+   ========================================= */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
