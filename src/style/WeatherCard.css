@@ -108,16 +108,32 @@
   border: none;
 }
 
-.weather-form > button[type="submit"]:disabled {
-  cursor: not-allowed;
-  background-color: var(--disabled-bg);
-  fill: var(--disabled-fill);
-}
-
 /* --- Error Message --- */
 .error-msg {
   color: var(--error-clr);
   margin-top: var(--space-m);
+}
+
+/* --- Loading Message --- */
+.loader,
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid transparent;
+  border-radius: 50%;
+}
+
+.loader {
+  position: relative;
+  margin-top: var(--space-m);
+  border-color: hsla(180, 100%, 60%, 0.2);
+}
+
+.spinner {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  border-top-color: hsl(180, 100%, 60%);
 }
 
 /* --- Weather Card --- */
