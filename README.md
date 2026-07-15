@@ -1,16 +1,40 @@
-# React + Vite
+# 🌦️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A slick, responsive, and real-time weather forecasting application built with React and Vite. Easily search for any city worldwide to get instant meteorological data and current conditions.
 
-Currently, two official plugins are available:
+🔗 **[Live Demo](https://hoiregeno.github.io/weather-app/)]**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Global Search:** Find current weather conditions for any city or region across the globe.
+*   **Detailed Metrics:** Track temperature, humidity, description and wind speed in real time.
+*   **Dynamic UI:** A clean, modern user interface that adapts smoothly across mobile, tablet, and desktop devices.
+*   **Fast Performance:** Powered by Vite for near-instant loading times and micro-second updates.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+*   **Frontend:** React + Vite (for rapid development and highly optimized builds)
+*   **Styling:** Tailwind CSS (fully responsive layout)
+*   **API:** [OpenWeatherMap API](https://openweathermap.org/api) (Free Tier)
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up and run the weather application locally on your machine.
+
+### Prerequisites
+
+*   Make sure you have Node.js installed on your computer.
+*   Get a free API key by signing up at [OpenWeatherMap](https://openweathermap.org/).
+
+### Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/hoiregeno/weather-app.git](https://github.com/hoiregeno/weather-app.git)
+   cd weather-app
