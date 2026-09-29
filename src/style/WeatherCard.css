@@ -60,11 +60,15 @@
    COMPONENTS
    ========================================= */
 
+.weather-form,
+.card {
+  width: min(25rem, 100%);
+}
+
 /* --- Search Form --- */
 .weather-form {
   display: flex;
   justify-content: space-between;
-  width: min(25rem, 100%);
   background-color: var(--overlay-shadow);
   overflow: hidden;
   border-radius: var(--radius-m);
